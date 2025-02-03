@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/landing_page.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<section class="hero is-medium is-bold cuc-cover">
+  <div class="container hero-body">
+    <div class="columns">
+      <div class="column">
+        <h1 class="title white-text">
+          <span class="intro white-text">
+            Fanfare CUC - Chaos par UpperCuite - Fanfare Paris
+          </span>
+        </h1>
+        <h2 class="subtitle white-text">
+          Recrutez nous pour vos événements à Paris ou aux alentours !
+        </h2>
+
+        <h3 class="white-text">
+          Animations extérieures, événements sportifs, soirées bars, ouvertures magasins...
+        </h3>
+        <br>
+        <a href="mailto:fanfare.cuc@gmail.com" class="button is-light is-outlined"><i class="fas fa-envelope"></i>&nbsp;<span class="is-hidden-mobile">Contact :&nbsp;</span>fanfare.cuc@gmail.com</a>
+      </div>
+      <div class="column is-hidden-mobile"></div>
+      <div class="is-hidden-tablet"><br><br></div>
+      <div class="column has-text-centered">
+        <a href="https://fr-fr.facebook.com/fanfare.CUC" title="Facebook">
+          <img class="logo-hero" id="logo_img" style="width: 100%" src="{% static 'images/logo.png' %}">
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section hero is-small is-bold is-white">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <h2 class="title"><i class="fas fa-calendar"></i>&nbsp;Les prochains concerts</h2>
+          <h3 class="subtitle">
+            Venez nous voir en direct ! <u><a href="{% url 'events' %}">Voir toutes les dates</a></u>
+          </h3>
+          {% include "partials/events_for_landing.html" with events=events %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section background-with-stars">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <h2 class="title leaning-white-background"><div class="leaning-dark-blue-content">Le jeu du CUC</div></h2>
+        <h3 class="subtitle has-text-white leaning-danger-background">
+          <div class="leaning-white-content">Dans l'attente de <a class="has-text-white" href="{% url 'events' %}">nos concerts</a>, jouez au jeu du CUC !</div>
+        </h3>
+      </div>
+      <div class="column">
+      </div>
+      <div class="column has-text-centered">
+        <a href="https://game.fanfare-cuc.fr">
+          <img class="logo-hero" src="{% static 'images/cucgame.png' %}">
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="scratch">
+  <div id="demo1" class="scratchpad"></div>
+</div>
+{% endblock content %}
+
+{% block extra_js %}
+  <script>
+    var static_url = "{% get_static_prefix %}";
+  </script>
+  <script type="text/javascript" src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/wScratchPad.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/konami.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/typed.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/landing_page.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/events.js' %}"></script>
+{% endblock extra_js %}

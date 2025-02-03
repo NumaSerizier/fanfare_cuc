@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <section class="hero is-small is-danger is-bold">
+    <div class="container hero-body">
+      <h1 class="title">Les midis du <span class="fas fa-heart"></span> CUC <span class="fas fa-heart"></span></h1>
+      <p>Après avoir cliqué sur play, il faut parfois attendre plusieurs secondes, le temps que le fichier midi charge...</p>
+    </div>
+  </section>
+  <section class="hero is-bold">
+    <div class="container hero-body">
+      {% for track in object_list %}
+        <p style="padding-bottom: .5rem;"><button class="button" id="play-{{ track.pk }}" onclick="playTrack('{{ track.midi_file.url }}', {{ track.pk }});return false;"><span class="fas fa-play"></span></button><button class="button" id="pause-{{ track.pk }}" style="display: none;" onclick="pauseTrack({{ track.pk }}); return false;"><span class="fas fa-pause"></span></button><span class="has-text-white">&nbsp;{{ track.title }}</span></p>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock content %}
+
+{% block extra_js %}
+  <script type='text/javascript' src='{% static "js/midi.js" %}'></script>
+
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+    crossorigin="anonymous"></script>
+  <script>
+    var currentTrack;
+    var playTrack = function (filename, pk) {
+      // Load a MIDI file
+      if (currentTrack) {
+        $("#pause-" + currentTrack).hide();
+        $("#play-" + currentTrack).show();
+      }
+      currentTrack = pk;
+      MIDIjs.stop();
+      MIDIjs.play(filename);
+      $("#play-" + pk).hide();
+      $("#pause-" + pk).show();
+    };
+
+    var pauseTrack = function (pk) {
+      MIDIjs.stop();
+      $("#pause-" + pk).hide();
+      $("#play-" + pk).show();
+    };
+  </script>
+{% endblock extra_js %}

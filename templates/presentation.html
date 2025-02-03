@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <section class="hero is-small is-danger is-bold">
+    <div class="container hero-body">
+      <h1 class="title">Présentation du <span class="fas fa-heart"></span> CUC <span class="fas fa-heart"></span></h1>
+    </div>
+  </section>
+  <section class="hero is-bold">
+    <div class="container hero-body">
+      <h2 class="title has-text-white">Membres actifs</h2>
+      <div class="img-container">
+        {% for people in object_list %}
+          {% if not people.is_dead %}
+            {% include "partials/people.html" %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <section class="hero is-bold">
+    <div class="container hero-body">
+      <h2 class="title has-text-white">Hall of fame</h2>
+      <div class="img-container">
+        {% for people in object_list %}
+          {% if people.is_dead %}
+            {% include "partials/people.html" %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock content %}

@@ -1,0 +1,19 @@
+language: python
+
+python:
+  - "3.6"
+
+env:
+  - DJANGO=2.0 MIGRATE='python manage.py migrate'
+
+# command to install dependencies
+install:
+  - pip install -r requirements_current.txt
+  - pip install -q Django==$DJANGO
+
+branches:
+  only:
+    - master
+
+# command to run tests
+script: pushd . && $MIGRATE && pytest && popd

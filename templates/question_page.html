@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/obnoxious.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+<section class="hero is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="animated intensifies has-text-white has-text-centered title">{{ answer }}</h1>
+    </div>
+  </div>
+</section>
+{% endblock content %}

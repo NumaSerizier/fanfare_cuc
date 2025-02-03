@@ -1,0 +1,214 @@
+html {
+  min-height: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: #25408f !important;
+  height: 100%;
+  min-height: 100%;
+  font-family: 'Nunito', sans-serif !important;
+}
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.cuc-cover {
+  background-image: url("/static/images/cuc_cover_crop_blue2.jpg");
+  background-size: cover;
+  filter: greyscale(100%);
+}
+
+.white-text {
+  color: white !important;
+  text-shadow: 2px 2px 10px black, 1px 1px 1px black, -2px -2px 5px black;
+}
+
+.no-decoration {
+  color: inherit;
+  text-decoration: none;
+}
+
+.no-decoration:hover {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.site-content {
+  flex: 1;
+}
+
+.section {
+  background: linear-gradient(to right, #25408f, #257095);
+}
+
+section {
+  background: linear-gradient(to right, #25408f, #057095);
+}
+
+.event-entry {
+  padding-bottom: .5rem;
+  cursor: pointer;
+}
+
+.hide-event-description {
+  display: none;
+}
+
+.background-with-stars {
+  background:
+    linear-gradient(324deg, #25408f 4%,   transparent 4%) -70px 43px,
+    linear-gradient( 36deg, #25408f 4%,   transparent 4%) 30px 43px,
+    linear-gradient( 72deg, #e3d7bf 8.5%, transparent 8.5%) 30px 43px,
+    linear-gradient(288deg, #e3d7bf 8.5%, transparent 8.5%) -70px 43px,
+    linear-gradient(216deg, #e3d7bf 7.5%, transparent 7.5%) -70px 23px,
+    linear-gradient(144deg, #e3d7bf 7.5%, transparent 7.5%) 30px 23px,
+
+    linear-gradient(324deg, #25408f 4%,   transparent 4%) -20px 93px,
+    linear-gradient( 36deg, #25408f 4%,   transparent 4%) 80px 93px,
+    linear-gradient( 72deg, #e3d7bf 8.5%, transparent 8.5%) 80px 93px,
+    linear-gradient(288deg, #e3d7bf 8.5%, transparent 8.5%) -20px 93px,
+    linear-gradient(216deg, #e3d7bf 7.5%, transparent 7.5%) -20px 73px,
+    linear-gradient(144deg, #e3d7bf 7.5%, transparent 7.5%) 80px 73px;
+  background-color: #25408f ;
+  background-size: 100px 100px;
+}
+
+.leaning-white-background {
+  background-color: white;
+  box-shadow: .1em .1em .2em black;
+  padding: 1rem 1rem .5rem 1rem;
+  margin-bottom: 3rem !important
+  transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg); /* IE 9 */
+  -webkit-transform: rotate(-3deg); /* Safari and Chrome */
+  z-index: 3;
+}
+
+
+.leaning-danger-background {
+  background-color: #ff0561;
+  box-shadow: .1em .1em .2em black;
+  padding: 1rem .5rem .5rem 1rem;
+  transform: rotate(3deg);
+  -ms-transform: rotate(3deg); /* IE 9 */
+  -webkit-transform: rotate(3deg); /* Safari and Chrome */
+  z-index: 2;
+
+}
+
+.leaning-dark-blue-content {
+  color: #25408f !important;
+}
+
+.leaning-white-content {
+  color: white !important;
+}
+
+.inline-block-display {
+  display: inline-block;
+}
+
+.skew-background {
+  background-color: white;
+  padding: .1rem .5rem;
+  transform: skew(-7deg)
+}
+
+.skew-background.front {
+  background-color: #ff0561;
+}
+
+.unskew-content {
+  color: #25408f;
+  transform: skew(7deg);
+}
+
+.unskew-content.front {
+  color: white;
+}
+
+.setlist-elt {
+  padding: .2rem .5rem;
+  padding-right: .5rem;
+  margin-right: .5rem;
+  margin-left: .5rem;
+  margin-bottom: .5rem;
+  display: inline-block;
+}
+
+.alternate-setlist-elt {
+  background-color: #ff0561;
+}
+
+.fullheight {
+  height: 100%;
+  min-height: 100%;
+}
+
+
+/**
+ * PRESENTATION SECTION
+ **/
+
+.img-circle {
+  border-radius: 50%;
+}
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* or space-around */
+}
+
+.figure-container {
+  display: inline-block;
+  margin-bottom: 8px;
+  width: calc(50% - 1rem);
+  margin-right: 8px;
+  text-decoration: none;
+  color: black;
+}
+
+.figure-container:nth-of-type(2n) {
+  margin-right: 0;
+}
+
+@media screen and (min-width: 50em) {
+  .figure-container {
+    width: calc(20% - 10px);
+  }
+
+  .figure-container:nth-of-type(2n) {
+    margin-right: 8px;
+  }
+
+  .figure-container:nth-of-type(5n) {
+    margin-right: 0;
+  }
+}
+
+figure {
+  margin: 0;
+  overflow: hidden;
+}
+
+figcaption {
+  margin-top: 15px;
+}
+
+.img-circle {
+  padding: .2rem;
+  box-shadow: 1px 1px 3px black;
+  border: none;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  background: #ccc;
+  transition: transform .2s ease-in-out;
+  z-index: 100;
+}

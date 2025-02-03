@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <section class="hero is-small is-danger is-bold">
+    <div class="container hero-body">
+      <h1 class="title">Le répertoire du <span class="fas fa-heart"></span> CUC <span class="fas fa-heart"></span></h1>
+    </div>
+  </section>
+  <section class="hero is-bold is-large fullheight cuc-cover">
+    <div class="container hero-body">
+      {% spaceless %}
+        {% for track in object_list %}
+          <div class="has-text-white skew-background setlist-elt {% cycle '' 'alternate-setlist-elt' %}"><div class="unskew-content {% cycle '' 'leaning-white-content' %}">{% if track.original_song_yt_link %}<a class="no-decoration" target="_blank" rel="noopener noreferrer" href="{{ track.original_song_yt_link }}">{{ track.title }}</a>{% else %}{{ track.title }}{% endif %}</div></div>{% if not forloop.last %}<strong class="has-text-white">·</strong>{% endif %}
+        {% endfor %}
+      {% endspaceless %}
+    </div>
+  </section>
+{% endblock content %}

@@ -1,0 +1,12 @@
+Django>=2.1.2,<2.2
+psycopg2-binary
+pytest
+pytest-django
+pytest-flake8
+pytest-cov
+closure
+yuicompressor
+factory_boy
+gunicorn
+Pillow
+django-import-export
